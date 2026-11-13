@@ -3,12 +3,12 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"flutter_bootstrap.js": "9223b7fcc68a3a5079a088deb9c7ad6b",
+const RESOURCES = {"flutter_bootstrap.js": "17f92d863fc2fe757574caa518b0dbb7",
 "version.json": "14ccbbccd400dac2777e0abf4d1f19b5",
 "index.html": "93964397bd3c31935d65effd8d6f00cc",
 "/": "93964397bd3c31935d65effd8d6f00cc",
 "firebase-messaging-sw.js": "222026d31df85a482037c3e9e5cd010a",
-"main.dart.js": "ef68bb8b08d74e2c3fdd11024f153c32",
+"main.dart.js": "3c528e4cf43303bc69bacf7c5316f080",
 "flutter.js": "f393d3c16b631f36852323de8e583132",
 "favicon.png": "3da94427fa23b2ea0bbf167dc30dbdfb",
 "icons/apple-touch-icon.png": "09e184ac9b831235759e8beda31a1d7a",
@@ -26,8 +26,6 @@ const RESOURCES = {"flutter_bootstrap.js": "9223b7fcc68a3a5079a088deb9c7ad6b",
 "assets/AssetManifest.bin": "19947311275fe1bd61f3ce5596288d28",
 "assets/fonts/MaterialIcons-Regular.otf": "bd376125e6751633f5366218b1fc600e",
 "assets/assets/images/biopole_logo.png": "9805d8198fb33bfca1926f638182c95f",
-"manifest.json.bak9": "375ba439b343031b1789cda82acb3c17",
-"index.html.bak9": "cb5ab0e9741fa0ab92602bd470580b51",
 "canvaskit/skwasm.js": "694fda5704053957c2594de355805228",
 "canvaskit/skwasm.js.symbols": "262f4827a1317abb59d71d6c587a93e2",
 "canvaskit/canvaskit.js.symbols": "48c83a2ce573d9692e8d970e288d75f7",
