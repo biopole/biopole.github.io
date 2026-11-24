@@ -46799,7 +46799,7 @@ p=t.p
 r=A.bN(A.a([A.bG(new A.Kr(B.rA,"Employ\xe9",r===B.aW,new A.aFF(l),k),1),B.cd,A.bG(new A.Kr(B.rq,"CEO / Admin",r===B.dh,new A.aFG(l),k),1)],p),B.r,B.l,B.p,k)
 o=q.length
 o=A.bG(o===0?A.a4("Aucun utilisateur disponible pour ce r\xf4le.",k,k,k,k,A.cj(k,k,B.bm,k,k,k,k,k,k,k,k,k,k,k,k,k,k,!0,k,k,k,k,k,k,k,k),k,k,k):A.aVO(new A.aFH(q),o,B.Qd,new A.aFI()),1)
-n=A.a(["v1.3.5"],t.s)
+n=A.a(["v1.3.6"],t.s)
 B.b.N(n,j.cx)
 m=j.cy
 if(m!=null)n.push("pr\xe9c\xe9dent : "+m)
