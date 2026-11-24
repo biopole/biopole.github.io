@@ -15,7 +15,7 @@ _flutter.buildConfig = {"engineRevision":"a18df97ca57a249df5d8d68cd0820600223ce2
 // (Paramètre « build » et non « v » : l'ancien service worker Flutter
 // ignorait « ?v= » et aurait resservi l'ancienne version.)
 (function () {
-  var buildId = "2460841911";
+  var buildId = "3891967937";
   if (buildId) {
     _flutter.buildConfig.builds.forEach(function (b) {
       if (b.mainJsPath) b.mainJsPath += "?build=" + buildId;
