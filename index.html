@@ -49,6 +49,44 @@
       if (el) el.remove();
     });
   </script>
-  <script src="flutter_bootstrap.js" async></script>
+  <script>
+    // Mises à jour automatiques (plus besoin de ⌘⇧R) :
+    // 1. Supprimer l'ancien service worker Flutter et son cache hors-ligne,
+    //    qui resservaient l'ancienne version. Celui des notifications
+    //    (firebase-messaging-sw.js) est conservé.
+    (function () {
+      if (!('serviceWorker' in navigator)) return;
+      var ctrl = navigator.serviceWorker.controller;
+      var controlled = !!ctrl && ctrl.scriptURL.indexOf('flutter_service_worker') !== -1;
+      navigator.serviceWorker.getRegistrations().then(function (regs) {
+        var jobs = regs.filter(function (r) {
+          var sw = r.active || r.waiting || r.installing;
+          return sw && sw.scriptURL.indexOf('flutter_service_worker') !== -1;
+        }).map(function (r) { return r.unregister(); });
+        if (window.caches) {
+          jobs.push(caches.keys().then(function (keys) {
+            return Promise.all(keys.filter(function (k) {
+              return k.indexOf('flutter') === 0;
+            }).map(function (k) { return caches.delete(k); }));
+          }));
+        }
+        return Promise.all(jobs);
+      }).then(function () {
+        // La page actuelle venait de l'ancien cache : recharger une fois.
+        if (controlled && !sessionStorage.getItem('biopole-sw-nettoye')) {
+          sessionStorage.setItem('biopole-sw-nettoye', '1');
+          location.reload();
+        }
+      }).catch(function () {});
+    })();
+
+    // 2. Toujours charger la dernière version du script de démarrage.
+    (function () {
+      var s = document.createElement('script');
+      s.src = 'flutter_bootstrap.js?t=' + Date.now();
+      s.async = true;
+      document.body.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

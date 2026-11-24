@@ -9,8 +9,20 @@ if (!window._flutter) {
 _flutter.buildConfig = {"engineRevision":"a18df97ca57a249df5d8d68cd0820600223ce262","builds":[{"compileTarget":"dart2js","renderer":"canvaskit","mainJsPath":"main.dart.js"}]};
 
 
-_flutter.loader.load({
-  serviceWorkerSettings: {
-    serviceWorkerVersion: "1281717714"
+// Biopole Connect : mises à jour automatiques de la version web.
+// Chaque build a un identifiant unique, ajouté à l'adresse de main.dart.js :
+// le navigateur télécharge donc toujours la dernière version publiée.
+// (Paramètre « build » et non « v » : l'ancien service worker Flutter
+// ignorait « ?v= » et aurait resservi l'ancienne version.)
+(function () {
+  var buildId = "2460841911";
+  if (buildId) {
+    _flutter.buildConfig.builds.forEach(function (b) {
+      if (b.mainJsPath) b.mainJsPath += "?build=" + buildId;
+    });
   }
-});
+})();
+
+// Pas de service worker Flutter (cache hors-ligne) : il bloquait les mises
+// à jour. Les notifications utilisent leur propre firebase-messaging-sw.js.
+_flutter.loader.load();
